@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "playwright-bdd-test"
+version = "0.1.0"
+description = "Playwright BDD Testing Framework"
+authors = [{ name = "Ion Motelica", email = "motelica.ion@gmail.com" }]
+
+[tool.pytest.ini_options]
+bdd_features_base_dir = "features"
+testpaths = ["steps"]
+addopts = "-v --tb=short --disable-warnings --maxfail=3 --color=yes --capture=no -n auto --dist=loadscope"
+
+[tool.pylint.main]
+disable = [
+    "C0114",  # Missing module docstring
+    "C0115",  # Missing class docstring
+    "C0116",  # Missing function docstring
+    "W0511",  # TODO comments warning
+    "R0903"   # Too few public methods in a class
+]
+max-line-length = 88
+ignore = [".git", "__pycache__", "venv", "build", "dist", ".DS_Store", "__MACOSX"]
+jobs = 0  # Auto-detect number of CPUs for parallel processing
+
+[tool.pylint.format]
+max-line-length = 88
+indent-string = "    "  # 4 spaces
+
+[tool.pylint.messages_control]
+enable = ["useless-suppression", "deprecated-module"]
+disable = ["missing-docstring", "import-error"]
+
+[tool.pylint.reports]
+output-format = "colorized"
+reports = "no"
+
+[tool.pylint.similarities]
+min-similarity-lines = 4  # Detect duplicate code
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+check_untyped_defs = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+exclude = ["venv", "build", "dist", "__pycache__", ".git", ".DS_Store", "__MACOSX"]
+
+dependencies = [
+    "playwright~=1.50.0",
+    "pytest==8.3.4",
+    "pytest-bdd==8.1.0",
+    "pytest-xdist==3.6.1",
+    "pytest-playwright==0.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "flake8==7.1.1",
+    "isort==6.0.0",
+    "black==25.1.0",
+    "mypy==1.15.0",
+    "pylint==3.3.4",
+    "flake8-bugbear==24.12.12",
+    "flake8-docstrings==1.7.0",
+    "pre-commit==4.1.0",
+    "python-dateutil==2.9.0.post0",
+    "playwright~=1.50.0",
+    "pytest==8.3.4",
+    "pytest-bdd==8.1.0",
+    "pytest-xdist==3.6.1",
+    "pytest-playwright==0.7.0"
+]
