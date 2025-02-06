@@ -1,0 +1,10 @@
+__pycache__
+.venv
+.idea
+.code
+build
+dist/
+/*.egg-ifo/
+*/*.xml
+.DS_Store
+__MACOSX
