@@ -12,12 +12,11 @@ Ensure you have the following installed:
 - Python 3.10+
 - Node.js & NPM (for Playwright browsers)
 - Git
-- Docker (if running in a containerized environment)
 
 ### **🔹 Clone the Repository**
 ```sh
- git clone https://github.com/mottwan/playwright-bdd-gest.git
- cd playwright-bdd-gest
+ git clone [playwright-bdd-test.git](https://github.com/mottwan/plawright-bdd-test.git)
+ cd playwright-bdd-test
 ```
 
 ### **🔹 Create a Virtual Environment**
